@@ -118,7 +118,7 @@ public class NioServer {
         /**
          * 将channel注册到selector上，监听可读事件
          */
-        socketChannel.register(selector, SelectionKey.OP_ACCEPT);
+        socketChannel.register(selector, SelectionKey.OP_READ);
 
 
         /**
@@ -177,8 +177,8 @@ public class NioServer {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         NioServer nioServer = new NioServer();
-
+        nioServer.start();
     }
 }
