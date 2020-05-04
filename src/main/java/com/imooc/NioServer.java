@@ -3,10 +3,7 @@ package com.imooc;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
-import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
-import java.nio.channels.ServerSocketChannel;
-import java.nio.channels.SocketChannel;
+import java.nio.channels.*;
 import java.nio.charset.Charset;
 import java.util.Iterator;
 import java.util.Set;
@@ -172,10 +169,38 @@ public class NioServer {
         if(request.length()>0){
             //广播给其他客户端
             System.out.println("::"+request);
+            broadCast(selector,socketChannel,request);
         }
 
     }
 
+    /**
+     * 广播给其他客户端
+     */
+    private void broadCast(Selector selector,SocketChannel sourceChannel ,String request){
+        /**
+         * 获取到所有已经接入的客户端channel
+         */
+        Set<SelectionKey> selectionKeySet = selector.keys();
+        /**
+         * 循环向所有channel广播信息
+         */
+        selectionKeySet.forEach( selectionKey->{
+            Channel targetChannel = selectionKey.channel();
+
+            //剔除发消息的客户端
+            if(targetChannel instanceof SocketChannel && targetChannel!= sourceChannel) {
+                try {
+                    ((SocketChannel) targetChannel).write(Charset.forName("UTF-8").encode(request));
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+        });
+
+
+
+    }
 
     public static void main(String[] args) throws IOException {
         NioServer nioServer = new NioServer();
