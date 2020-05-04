@@ -14,7 +14,7 @@
 
 接下来看一下BIO网络模型用图怎么表示
 
-![image-20200503172057857](https://github.com/shendezhuti/nio-chat-room/blob/master/image-20200503172057857.png)
+![image-20200503172057857](https://github.com/shendezhuti/nio-chat-room/blob/master/image/image-20200503172057857.png)
 
 1.服务器端启动，监听客户端的连接请求
 
@@ -30,7 +30,7 @@
 
 如果上千万的客户端与服务器端建立了连接后，都没有发数据，这样服务器端会变成什么样？
 
-![image-20200503174307563](https://github.com/shendezhuti/nio-chat-room/blob/master/image-20200503174307563.png)
+![image-20200503174307563](https://github.com/shendezhuti/nio-chat-room/blob/master/image/image-20200503174307563.png)
 
 我们从上图也可以看出，如果在高并发的情况下，客户端线程过多，就会对服务端的性能造成非常大的影响
 
@@ -52,7 +52,7 @@
 
 首先有一个Acceptor去建立连接请求，当客户端1有连接请求后，创建socket，放到后台的set集合，然后遍历set集合，调用read方法。当read方法没有结果返回或者返回空，说明没有数据到达，不用处理。当read方法返回了数据，说明收到了客户端的信息，我们调用handler方法来处理业务逻辑。客户端2连接后，也是这样的步骤。这样后端的一个handler处理所有的业务请求。
 
-![image-20200503183108323](https://github.com/shendezhuti/nio-chat-room/blob/master/image-20200503183108323.png)
+![image-20200503183108323](https://github.com/shendezhuti/nio-chat-room/blob/master/image/image-20200503183108323.png)
 
 
 
@@ -84,7 +84,7 @@ Selector组件: 循环检测注册事件就绪状态 （模型的核心），sel
 
 11.read&write handler将socket可读事件注册到selector上
 
-![image-20200503190754600](https://github.com/shendezhuti/nio-chat-room/blob/master/image-20200503190754600.png)
+![image-20200503190754600](https://github.com/shendezhuti/nio-chat-room/blob/master/image/image-20200503190754600.png)
 
 
 
@@ -125,7 +125,7 @@ Selector组件: 循环检测注册事件就绪状态 （模型的核心），sel
 
 ### channel使用
 
-![image-20200503193855872](https://github.com/shendezhuti/nio-chat-room/blob/master/image-20200503193855872.png)
+![image-20200503193855872](https://github.com/shendezhuti/nio-chat-room/blob/master/image/image-20200503193855872.png)
 
 ### Buffer简介
 
@@ -141,19 +141,19 @@ Selector组件: 循环检测注册事件就绪状态 （模型的核心），sel
 
 ### Buffer的使用
 
-![image-20200503205408272](/Users/hzx/Library/Application Support/typora-user-images/image-20200503205408272.png)
+![image-20200503205408272](/Users/hzx/Library/Application Support/typora-user-images/image/image-20200503205408272.png)
 
-![image-20200503205422395](/Users/hzx/Library/Application Support/typora-user-images/image-20200503205422395.png)
+![image-20200503205422395](/Users/hzx/Library/Application Support/typora-user-images/image/image-20200503205422395.png)
 
-![image-20200503205506242](https://github.com/shendezhuti/nio-chat-room/blob/master/image-20200503205506242.png)
+![image-20200503205506242](https://github.com/shendezhuti/nio-chat-room/blob/master/image/image-20200503205506242.png)
 
-![image-20200503205525271](https://github.com/shendezhuti/nio-chat-room/blob/master/image-20200503205525271.png)
+![image-20200503205525271](https://github.com/shendezhuti/nio-chat-room/blob/master/image/image-20200503205525271.png)
 
-![image-20200503205534576](https://github.com/shendezhuti/nio-chat-room/blob/master/image-20200503205534576.png)
+![image-20200503205534576](https://github.com/shendezhuti/nio-chat-room/blob/master/image/image-20200503205534576.png)
 
-![image-20200503205654982](https://github.com/shendezhuti/nio-chat-room/blob/master/image-20200503205654982.png)
+![image-20200503205654982](https://github.com/shendezhuti/nio-chat-room/blob/master/image/image-20200503205654982.png)
 
-![image-20200503205710603](https://github.com/shendezhuti/nio-chat-room/blob/master/image-20200503205710603.png)
+![image-20200503205710603](https://github.com/shendezhuti/nio-chat-room/blob/master/image/image-20200503205710603.png)
 
 
 
@@ -164,7 +164,7 @@ Selector组件: 循环检测注册事件就绪状态 （模型的核心），sel
 
 ### selector使用
 
-![image-20200503210450736](https://github.com/shendezhuti/nio-chat-room/blob/master/image-20200503210450736.png)
+![image-20200503210450736](https://github.com/shendezhuti/nio-chat-room/blob/master/image/image-20200503210450736.png)
 
 
 
