@@ -20,7 +20,7 @@ public class NioClient {
     /**
      * 启动
      */
-    public void start() throws IOException {
+    public void start(String nickname) throws IOException {
 
         /**
          * 连接服务器端
@@ -45,7 +45,7 @@ public class NioClient {
         while(scanner.hasNextLine()){
             String request = scanner.nextLine();
             if(request!= null && request.length()>0){
-                socketChannel.write(Charset.forName("UTF-8").encode(request));
+                socketChannel.write(Charset.forName("UTF-8").encode(nickname+":"+request));
             }
         }
 
@@ -53,6 +53,7 @@ public class NioClient {
     }
 
     public static void main(String[] args) throws IOException {
-        new NioClient().start();
+      //  new NioClient().start();
+
     }
 }
