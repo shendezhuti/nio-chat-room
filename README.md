@@ -141,9 +141,9 @@ Selector组件: 循环检测注册事件就绪状态 （模型的核心），sel
 
 ### Buffer的使用
 
-![image-20200503205408272](/Users/hzx/Library/Application Support/typora-user-images/image/image-20200503205408272.png)
+![image-20200503205408272](https://github.com/shendezhuti/nio-chat-room/blob/master/image/image-20200503205408272.png)
 
-![image-20200503205422395](/Users/hzx/Library/Application Support/typora-user-images/image/image-20200503205422395.png)
+![image-20200503205422395](https://github.com/shendezhuti/nio-chat-room/blob/master/image/image-20200503205422395.png)
 
 ![image-20200503205506242](https://github.com/shendezhuti/nio-chat-room/blob/master/image/image-20200503205506242.png)
 
